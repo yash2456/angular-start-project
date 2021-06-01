@@ -1,0 +1,114 @@
+<!-- 
+<p *ngFor="let alert of alerts">
+  <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+</p>
+<p>
+  <button type="button" class="btn btn-primary" (click)="reset()">Reset</button>
+</p> -->
+<!-- <h1>matrial</h1>
+   <button mat-button>angular</button>
+   <button mat-stroked-button color="accent">Accent</button>
+   <button mat-flat-button color="accent">Accent</button>
+   <br>
+   <mat-slider></mat-slider>
+   <br>
+   <mat-slider thumbLabel tickInterval="1"></mat-slider>
+   <br> 
+ <a routerLink ="user">user</a>
+ <br>
+ <br>
+ <a routerLink = "admin">admin</a>
+ <br>
+ <br>
+   <router-outlet></router-outlet>
+ <table border="1">
+   <tr>
+     <td>id</td>
+     <td>title</td>
+     <td>userId</td>
+   </tr>
+   <tr *ngFor="let item of data ">
+    <td>{{item.id}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.userId}}</td>
+  </tr>
+ </table>                                                                                      -->
+
+<!-- <div *ngFor="let raj of data">
+   <h1>{{raj.email}}</h1>
+   <h1>{{raj.password}}</h1>
+  </div> -->
+
+
+<!--  
+<div class="col-sm-6" >
+   <form #ok="ngForm" (ngSubmit)="login(ok.value)"  [formGroup]="loginform">
+    <div class="row">
+      <div class="col">
+        <label>Fname</label>
+        <input type="text" ngModel class="form-control" formControlName="fname" placeholder="First name">
+        <span class="red-error" *ngIf="fname.invalid && fname.touched" >*fname IS Required*</span>
+      </div>
+      <div class="col">
+        <label>Lname</label>
+        <input type="text"  ngModel class="form-control" formControlName="lname" placeholder="Last name">
+        <span class="red-error" *ngIf="lname.invalid && lname.touched" >*lname IS Required*</span>
+      </div>
+    </div>
+    <div class="form-group"> 
+      
+    
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="in-valid" ngModel class="form-control" email formControlName="email" placeholder="Enter email">
+      <span class="red-error" *ngIf="email.invalid && email.touched">*email filed is required*</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" ngModel maxlength="10" class="form-control" formControlName="password" placeholder="Password">
+      <span class="red-error" *ngIf="password.invalid && password.touched " >*PASSWORD IS Required*</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">phonenumber</label>
+      <input  type="text" ngModel  maxlength="10" class="form-control" formControlName="phonenumber" placeholder="phone number">
+      <span class="red-error" *ngIf="phonenumber.invalid && phonenumber.touched " >*phone number IS Required*</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">address</label>
+      <input type="text" ngModel class="form-control" formControlName="address" placeholder="address">
+      <span class="red-error" *ngIf="address.invalid && address.touched" >*address IS Required*</span>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlFile1">Example file input</label>
+      <input type="file" name="file" class="form-control-file" formControlName="file" ngModel id="exampleFormControlFile1">
+      <span class="red-error" *ngIf="file.invalid && file.touched" >*file IS Required*</span>
+    </div>
+    
+    <button type="submit" [disabled]="ok.invalid"  class="btn btn-primary">Submit</button>
+    
+     </form>
+  </div>
+  -->
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+  <a class="navbar-brand" routerLink="/">router</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <!-- <a class="nav-item nav-link active" >Home <span class="sr-only">(current)</span></a> -->
+      <a class="nav-item nav-link" routerLink="user">user</a>
+      <a class="nav-item nav-link" routerLink="userlist">userlist</a>
+      <a class="nav-item nav-link " routerLink="admin">admin</a>
+      <a class="nav-item nav-link" routerLink="adminlist">adminlist</a>
+      <a class="nav-item nav-link" routerLink="uslidata">uslidata</a>
+
+    </div>
+  </div>
+</nav>
+
+
+<div>
+  <router-outlet></router-outlet>
+
+</div>
