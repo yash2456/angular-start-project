@@ -1,0 +1,121 @@
+<div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>success!</strong> your data is entered.
+    <button (click)="closeAleret()" type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+
+<div class="container">
+    <h1 class="container">Customer details</h1>
+
+    <hr>
+
+    <div class="ok ">
+        <form #inform="ngForm" [formGroup]="infromation" (ngSubmit)="data(inform)">
+
+            <div class="row">
+                <div class="col">
+                    <label>First Name</label>
+                    <span class="red-error" *ngIf="fname.invalid  && fname.touched">*fname IS Required*</span>
+                    <input type="text" class="form-control" name="fname" formControlName="fname" required>
+                </div>
+                <div class="col">
+                    <label>Last Name</label>
+                    <span class="red-error" *ngIf="lname.invalid && lname.touched">*lname IS Required*</span>
+                    <input type="text" class="form-control" name="lname" formControlName="lname" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <span class="red-error" *ngIf="address.invalid && address.touched">*address IS Required*</span>
+                <input type="text" class="form-control" formControlName="address" placeholder="1234 Main St">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+
+                <input type="text" class="form-control" formControlName="address2"
+                    placeholder="Apartment, studio, or floor">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+
+                    <span class="red-error" *ngIf="city.invalid && city.touched">*city IS Required*</span>
+                    <!-- <input type="text" formControlName="city" class="form-control"> -->
+                    <select class="form-control" formControlName="city">
+                        <option value="">please select city</option>
+                        <option>Surat</option>
+                        <option>Ahmedabad</option>
+                        <option>Vadodara</option>
+                        <option>Rajkot</option>
+                        <option>Anand</option>
+                    </select>
+                </div>
+
+
+                <!-- formControlName="city" -->
+                <div class="form-group col-md-4">
+                    <label for="inputState">State</label>
+                    <span class="red-error" *ngIf="state.invalid && state.touched">*state IS Required*</span>
+                    <input type="text" formControlName="state" class="form-control">
+
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <span class="red-error" *ngIf="zip.invalid && zip.touched">*zip IS Required*</span>
+                    <input type="text" class="form-control" formControlName="zip" maxlength="6">
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="d-flex">
+                    <p class="form-check-label mr-2 mb-0">Choose Gender:-</p>
+                    <div class="form-check pb-0">
+                        <input class="form-check-input" type="radio" name="gender" value="male"
+                            formControlName="gender">
+                        <label class="form-check form-check-inline">Male</label>
+                    </div>
+                    <div class="form-check pb-0">
+                        <input class="form-check-input" type="radio" name="gender" value="female"
+                            formControlName="gender">
+                        <label class="form-check form-check-inline">Female</label>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="form-group col-md-" style="padding-top: 10px;">
+                <label for="inputEmail4">Email</label>
+                <span class="red-error" *ngIf="email.invalid && email.touched">*email IS Required*</span>
+                <input type="email" class="form-control" formControlName="email" placeholder="email@example.com">
+            </div>
+            <div class=" form-group">
+                <label for="inputEmail4">phonenumber</label>
+                <span class="red-error" *ngIf="phonenumber.invalid && phonenumber.touched">*phonenumber IS
+                    Required*</span>
+                <input type="text" class="form-control" formControlName="phonenumber" maxlength="10">
+            </div>
+            <div class="form-group">
+                <label>hobbies</label>
+                <div style="width: 110px; height: 170px; border: 1px solid; padding-left:10px ;">
+
+                    <label *ngFor="let data of Data; let i=index">
+                        <input type="checkbox" [value]="data.value" formControlName="hobbies"
+                            (change)="onCheckboxChange($event)" />
+                        {{data.name}}
+                    </label>
+                    <!-- <input formControlName="hobbies" value="checkArrayhobbie" /> -->
+
+                </div>
+            </div>
+
+
+
+            <div class="text-left">
+                <button type="submit" [disabled]="inform.invalid" class="btn btn-success mr-1"> Submit</button>
+                <button class="btn btn-secondary" type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+</div>
