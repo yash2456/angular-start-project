@@ -1,0 +1,47 @@
+<div class="container">
+    <h1>Customer details</h1>
+    <div style="overflow-x: scroll;">
+        <marquee scrollamount="10" direction="left" style="color: rgb(0, 89, 255);">Customer details</marquee>
+        <table class="table ">
+            <thead>
+                <tr class="bg-warning">
+                    <th class="bg-primary">id</th>
+                    <th>Fname</th>
+                    <th>Lname</th>
+                    <th>Address</th>
+                    <th>Address2</th>
+                    <th>city</th>
+                    <th>State</th>
+                    <th>Zip-code</th>
+                    <th>gender</th>
+                    <th>Email</th>
+                    <th>phonenumber</th>
+                    <th>hobbies</th>
+                    <th>delete</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of value">
+                    <td class="bg-success">{{item.id}}</td>
+                    <td>{{item.fname}}</td>
+                    <td>{{item.lname}}</td>
+                    <td>{{item.address}}</td>
+                    <td>{{item.address2}}</td>
+                    <td>{{item.city}}</td>
+                    <td>{{item.state}}</td>
+                    <td>{{item.zip}}</td>
+                    <td>{{item.gender}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.phonenumber}}</td>
+                    <td>{{item.hobbies}}</td>
+                    <td class="bg-danger"><i (click)=deletlist(item.id) class="fa fa-trash"
+                            style="font-size:20px;color:rgb(255, 255, 255);"></i>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
