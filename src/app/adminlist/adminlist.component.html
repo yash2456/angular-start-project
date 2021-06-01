@@ -1,0 +1,91 @@
+<div class="container">
+  <h1>listing of data</h1>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">+create
+  </button>
+  <div style="overflow-x: scroll;">
+    <!-- Button trigger modal -->
+
+    <marquee scrollamount="10" direction="left" style="color: rgb(0, 89, 255);">list of data</marquee>
+
+
+
+
+    <br />
+    <br />
+    <table class="table">
+      <thead>
+        <tr class="bg-warning">
+
+
+          <th class="bg-primary">id</th>
+          <th>title</th>
+          <th>author</th>
+          <th>file</th>
+          <th>operation</th>
+          <th>edit</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr *ngFor="let item of list">
+          <!-- <td >1</td> -->
+          <td class="bg-success">{{item.id}}</td>
+          <td>{{item.title}}</td>
+          <td>{{item.author}}</td>
+          <td>{{item.file}}</td>
+
+          <td class="bg-danger"><i (click)="deleteok(item.id)" class="fa fa-trash"
+              style="font-size:20px;color:rgb(255, 255, 255);"></i>
+          </td>
+          <td class="bg-primary"><a routerLink="/admin/{{item.id}}"><i class="fa fa-edit"
+                style="font-size:20px;color:rgb(255, 255, 255);"></i></a></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+  <!-- Modal -->
+  <form [formGroup]="login" (ngSubmit)="y1()">
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+
+          <div class="modal-body">
+
+
+            <div class="form-group">
+              <label>Title</label>
+              <input type="text" class="form-control" formControlName="title" placeholder="Enter title">
+            </div>
+            <div class="form-group">
+              <label>Author</label>
+              <input type="text" class="form-control" formControlName="author" placeholder="Enter author">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="customFile">choose file please</label>
+              <input type="file" class="form-control" (change)="uploadFile($event)" formControlName="file">
+            </div>
+            <img [src]="url" height="150px" width="150px"><br /><br />
+
+
+          </div>
+
+
+
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
